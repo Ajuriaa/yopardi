@@ -294,8 +294,8 @@ function renderEnd(s) {
 function confetti() {
   const canvas = $('#confetti');
   const ctx = canvas.getContext('2d');
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
   const colors = ['#ffc53d', '#ff3b5c', '#2f8cff', '#22d37a', '#ffffff'];
   const parts = Array.from({ length: 260 }, () => ({
     x: Math.random() * canvas.width,
