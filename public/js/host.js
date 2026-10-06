@@ -370,7 +370,17 @@ function render() {
   let html = '';
   switch (view) {
     case 'lobby':
-      html = panelInfo('Pantalla de inicio', 'Logo y equipos. Cuando estén listos pasá a Reglas o directo a Feud.');
+      html =
+        `<div class="card"><h2>1 · Nombres de los equipos</h2><p>Pedile a cada equipo su nombre. La TV lo muestra al instante.</p>
+          ${state.teams
+            .map(
+              (t, i) => `<div class="row team-${i}" style="margin-top:10px">
+                <button class="btn team big" data-ui="rename" data-p='{"team":${i}}'>✏️ ${esc(t.name)}</button></div>`
+            )
+            .join('')}</div>` +
+        `<div class="card"><h2>2 · Arrancar</h2><div class="row">
+          ${act('setScene', { scene: 'rules' }, { label: 'Reglas 🍺' })}
+          ${act('setScene', { scene: 'feud' }, { cls: 'primary', label: 'Family Feud →' })}</div></div>`;
       break;
     case 'rules':
       html = panelInfo('Reglas de tomar', 'Leelas en voz alta para que nadie se haga el loco después.');
