@@ -1,0 +1,23 @@
+{
+  "_nota": "Orden sugerido en el cel. Al cargar una pregunta de una ronda se pone su multiplicador. Las demás quedan como reserva.",
+  "rounds": [
+    {
+      "name": "Ronda 1 · 1x",
+      "mult": 1,
+      "ids": [
+        "ff-08",
+        "ff-07",
+        "ff-22"
+      ]
+    },
+    {
+      "name": "Ronda 2 · Puntos dobles",
+      "mult": 2,
+      "ids": [
+        "ff-05",
+        "ff-01",
+        "ff-04"
+      ]
+    }
+  ]
+}

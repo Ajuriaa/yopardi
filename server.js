@@ -76,7 +76,15 @@ function loadContent() {
     ? { category: jeopRaw.final.category || 'Final', q: jeopRaw.final.q, a: jeopRaw.final.a || '' }
     : null;
 
-  content = { feud, jeop: { values, categories, final } };
+  const playlistRaw = readJSON(path.join(DATA_DIR, 'feud-playlist.json'), { rounds: [] });
+  const feudIds = new Set(feud.map((q) => q.id));
+  const rounds = (playlistRaw.rounds || []).map((r) => ({
+    name: String(r.name || 'Ronda'),
+    mult: [1, 2, 3].includes(Number(r.mult)) ? Number(r.mult) : 1,
+    ids: (r.ids || []).filter((id) => feudIds.has(id)),
+  }));
+
+  content = { feud, rounds, jeop: { values, categories, final } };
   console.log(`📚 Contenido: ${feud.length} preguntas de Feud, ${categories.length} categorías de Jeopardy${final ? ', final lista' : ', sin final'}`);
 }
 
@@ -202,11 +210,12 @@ const actions = {
   },
 
   // --- Family Feud ---
-  feudLoad({ qid }) {
+  feudLoad({ qid, mult }) {
     const q = content.feud.find((x) => x.id === qid);
     if (!q) throw new GameError('Pregunta no encontrada');
     const f = state.feud;
     Object.assign(f, { qid, revealed: q.answers.map(() => false), strikes: 0, control: null, bank: 0, steal: false, awarded: null });
+    if ([1, 2, 3].includes(Number(mult))) f.mult = Number(mult);
     if (!f.usedQids.includes(qid)) f.usedQids.push(qid);
   },
   feudClear() {
@@ -454,6 +463,7 @@ function viewFor(role) {
 
   if (isHost) {
     view.feudList = content.feud.map((x) => ({ id: x.id, text: x.question, count: x.answers.length, used: f.usedQids.includes(x.id) }));
+    view.feudRounds = content.rounds;
     view.jeopFull = categories.map((c) => ({ name: c.name, clues: c.clues.map((cl) => ({ q: cl.q, a: cl.a })) }));
     view.dd = j.dd;
     view.canUndo = history.length > 0;

@@ -178,15 +178,20 @@ function panelInfo(title, text, extra = '') {
 function panelFeud() {
   const f = state.feud;
   if (!f.question) {
-    const items = state.feudList
-      .map(
-        (q) => `<button class="btn qitem ${q.used ? 'used' : ''}" data-act="feudLoad" data-p='${esc(JSON.stringify({ qid: q.id }))}'>
-          <span class="t">${esc(q.text)}</span><span class="badge">${q.used ? 'usada' : q.count + ' resp'}</span></button>`
-      )
+    if (!state.feudList.length) return `<div class="card"><h2>Family Feud</h2><p>No hay preguntas. Revisá data/family-feud.json</p></div>`;
+    const byId = new Map(state.feudList.map((q) => [q.id, q]));
+    const item = (q, mult) => `<button class="btn qitem ${q.used ? 'used' : ''}" data-act="feudLoad" data-p='${esc(JSON.stringify(mult ? { qid: q.id, mult } : { qid: q.id }))}'>
+          <span class="t">${esc(q.text)}</span><span class="badge">${q.used ? 'usada' : q.count + ' resp'}</span></button>`;
+    const inRounds = new Set();
+    const rounds = (state.feudRounds || [])
+      .map((r) => {
+        r.ids.forEach((id) => inRounds.add(id));
+        const items = r.ids.map((id) => byId.get(id)).filter(Boolean).map((q) => item(q, r.mult)).join('');
+        return `<div class="card"><h2>${esc(r.name)}${r.mult > 1 ? ` <span class="dd-flag">${r.mult}X</span>` : ''}</h2><div class="qlist">${items}</div></div>`;
+      })
       .join('');
-    return `<div class="card"><h2>Escogé una pregunta</h2>${
-      state.feudList.length ? `<div class="qlist">${items}</div>` : '<p>No hay preguntas. Revisá data/family-feud.json</p>'
-    }</div>`;
+    const reserve = state.feudList.filter((q) => !inRounds.has(q.id)).map((q) => item(q)).join('');
+    return `${rounds}<div class="card"><h2>${rounds ? 'Reserva (usa el multiplicador actual)' : 'Escogé una pregunta'}</h2><div class="qlist">${reserve}</div></div>`;
   }
 
   const t = state.teams;
