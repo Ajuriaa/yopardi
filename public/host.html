@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#070b24">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Yopardi · Host</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/host.css">
+</head>
+<body>
+  <div class="sticky">
+  <header class="top">
+    <span id="dot" class="dot" title="Conexión"></span>
+    <div id="mini-scores" class="mini-scores"></div>
+    <button id="undo" class="undo" disabled>↩︎ Deshacer</button>
+  </header>
+  <nav id="tabs" class="tabs"></nav>
+  </div>
+  <main id="panel" class="panel"></main>
+  <footer id="drinkbar" class="drinkbar"></footer>
+
+  <div id="sheet" class="sheet hidden">
+    <div class="sheet-card">
+      <div id="sheet-title" class="sheet-title"></div>
+      <div id="sheet-body"></div>
+      <div class="sheet-actions">
+        <button id="sheet-cancel" class="btn ghost">Cancelar</button>
+        <button id="sheet-ok" class="btn primary">OK</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <div id="badkey" class="badkey hidden">
+    <div>🔒</div>
+    <p>Este cel no tiene la llave de host.<br>Escaneá el QR que sale en la terminal de la compu.</p>
+  </div>
+
+  <script type="module" src="/js/host.js"></script>
+</body>
+</html>

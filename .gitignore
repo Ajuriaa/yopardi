@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+
+# Estado del juego en ejecución
+data/state.json
+data/*.tmp
+data/.host-key
+
+# Contenido privado del grupo: NO se publica
+*.zip
+private/
+data/jeopardy.json

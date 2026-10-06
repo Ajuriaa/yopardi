@@ -1,0 +1,20 @@
+{
+  "name": "yopardi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Family Feud × Jeopardy para la noche con los amigos",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@fontsource/anton": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "qrcode": "^1.5.4",
+    "ws": "^8.22.0"
+  }
+}

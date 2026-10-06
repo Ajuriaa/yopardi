@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yopardi · TV</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/tv.css">
+</head>
+<body>
+  <div id="start" class="start">
+    <div class="logo">YOPARDI<span>🍻</span></div>
+    <button id="start-btn" class="start-btn">Click para empezar</button>
+    <p>Activa el sonido y la pantalla completa · tecla <b>F</b> para pantalla completa</p>
+  </div>
+
+  <div id="app" class="app">
+    <div class="stage-lights"></div>
+
+    <header id="scorebar" class="scorebar">
+      <div class="score team-0" data-team="0"><div class="score-name"></div><div class="score-num">0</div></div>
+      <div class="scorebar-center">
+        <div id="scene-label" class="scene-label"></div>
+        <div id="timer" class="timer hidden"><span></span></div>
+      </div>
+      <div class="score team-1" data-team="1"><div class="score-name"></div><div class="score-num">0</div></div>
+    </header>
+
+    <main class="scenes">
+      <section id="scene-lobby" class="scene">
+        <div class="logo big">YOPARDI</div>
+        <div class="tagline">Family Feud <span>×</span> Jeopardy</div>
+        <div class="versus">
+          <div class="vs-team team-0"></div>
+          <div class="vs">VS</div>
+          <div class="vs-team team-1"></div>
+        </div>
+        <div class="lobby-foot">El que falla, toma 🍺</div>
+      </section>
+
+      <section id="scene-rules" class="scene">
+        <h1 class="scene-title">Reglas de la casa 🍺</h1>
+        <ol class="rules">
+          <li><b>Strike en Feud</b> <span>toma el que falló</span></li>
+          <li><b>3 strikes</b> <span>toma todo el equipo</span></li>
+          <li><b>Robo exitoso</b> <span>toma el equipo que tenía el control</span></li>
+          <li><b>Respuesta #1</b> <span>el equipo escoge quién del otro equipo toma</span></li>
+          <li><b>Falla en Jeopardy</b> <span>toma el que respondió (y resta puntos)</span></li>
+          <li><b>Daily Double fallado</b> <span>toma doble</span></li>
+          <li><b>Equipo perdedor</b> <span>shot grupal al final</span></li>
+        </ol>
+      </section>
+
+      <section id="scene-scores" class="scene">
+        <h1 class="scene-title">Marcador</h1>
+        <div class="big-scores">
+          <div class="big-score team-0"><div class="n"></div><div class="s"></div></div>
+          <div class="big-score team-1"><div class="n"></div><div class="s"></div></div>
+        </div>
+      </section>
+
+      <section id="scene-feud" class="scene">
+        <div class="feud-top">
+          <div id="feud-mult" class="feud-mult hidden"></div>
+          <div class="feud-bank"><span class="label">Banco</span><span id="feud-bank">0</span></div>
+        </div>
+        <div id="feud-question" class="feud-question"></div>
+        <div id="feud-board" class="feud-board"></div>
+        <div id="feud-strikes" class="feud-strikes"></div>
+        <div id="feud-empty" class="empty-msg">Esperando pregunta…</div>
+      </section>
+
+      <section id="scene-jeopardy" class="scene">
+        <div id="jeop-board" class="jeop-board"></div>
+        <div id="jeop-empty" class="empty-msg hidden">Faltan las categorías de Jeopardy</div>
+        <div id="jeop-clue" class="jeop-clue hidden">
+          <div class="clue-head"><span id="clue-cat"></span><span id="clue-val"></span></div>
+          <div id="clue-text" class="clue-text"></div>
+          <div id="clue-answer" class="clue-answer hidden"></div>
+        </div>
+        <div id="jeop-dd" class="jeop-dd hidden">
+          <div class="dd-text">DAILY<br>DOUBLE</div>
+          <div class="dd-sub">🍻 Si fallan: toman doble</div>
+        </div>
+      </section>
+
+      <section id="scene-final" class="scene">
+        <div class="final-label">Final Jeopardy</div>
+        <div id="final-cat" class="final-cat"></div>
+        <div id="final-clue" class="final-clue hidden"></div>
+        <div id="final-answer" class="final-answer hidden"></div>
+        <div id="final-results" class="final-results hidden"></div>
+      </section>
+
+      <section id="scene-end" class="scene">
+        <div class="end-crown">👑</div>
+        <div id="end-winner" class="end-winner"></div>
+        <div id="end-score" class="end-score"></div>
+        <div id="end-loser" class="end-loser"></div>
+        <canvas id="confetti" class="confetti"></canvas>
+      </section>
+    </main>
+
+    <div id="fx-strike" class="fx-strike"></div>
+    <div id="fx-drink" class="fx-drink"><div class="drink-emoji">🍺</div><div class="drink-title">¡TOMA!</div><div class="drink-who"></div><div class="drink-reason"></div></div>
+    <div id="fx-banner" class="fx-banner"></div>
+    <div id="offline" class="offline hidden">Reconectando con el servidor…</div>
+  </div>
+
+  <script type="module" src="/js/tv.js"></script>
+</body>
+</html>

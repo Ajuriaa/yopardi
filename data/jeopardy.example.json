@@ -1,0 +1,49 @@
+{
+  "_nota": "EJEMPLO temporal. Se reemplaza con preguntas sacadas del chat del grupo. 'values' = puntos por fila. Marcá 'dd': true en una pista para que sea Daily Double (si no hay, se escoge una al azar).",
+  "values": [20, 40, 60, 80, 100],
+  "categories": [
+    { "name": "¿Quién dijo?", "clues": [
+      { "q": "Ejemplo: \"Yo ya no tomo, solo una\"", "a": "¿Quién es [nombre]?" },
+      { "q": "Ejemplo pista 40", "a": "Respuesta" },
+      { "q": "Ejemplo pista 60", "a": "Respuesta" },
+      { "q": "Ejemplo pista 80", "a": "Respuesta" },
+      { "q": "Ejemplo pista 100", "a": "Respuesta" }
+    ]},
+    { "name": "Esa noche…", "clues": [
+      { "q": "Ejemplo pista 20", "a": "Respuesta" },
+      { "q": "Ejemplo pista 40", "a": "Respuesta" },
+      { "q": "Ejemplo pista 60", "a": "Respuesta" },
+      { "q": "Ejemplo pista 80", "a": "Respuesta" },
+      { "q": "Ejemplo pista 100", "a": "Respuesta" }
+    ]},
+    { "name": "Stats del chat", "clues": [
+      { "q": "Ejemplo pista 20", "a": "Respuesta" },
+      { "q": "Ejemplo pista 40", "a": "Respuesta" },
+      { "q": "Ejemplo pista 60", "a": "Respuesta" },
+      { "q": "Ejemplo pista 80", "a": "Respuesta" },
+      { "q": "Ejemplo pista 100", "a": "Respuesta" }
+    ]},
+    { "name": "Emojis", "clues": [
+      { "q": "Ejemplo pista 20", "a": "Respuesta" },
+      { "q": "Ejemplo pista 40", "a": "Respuesta" },
+      { "q": "Ejemplo pista 60", "a": "Respuesta" },
+      { "q": "Ejemplo pista 80", "a": "Respuesta" },
+      { "q": "Ejemplo pista 100", "a": "Respuesta" }
+    ]},
+    { "name": "Planes que nunca pasaron", "clues": [
+      { "q": "Ejemplo pista 20", "a": "Respuesta" },
+      { "q": "Ejemplo pista 40", "a": "Respuesta" },
+      { "q": "Ejemplo pista 60", "a": "Respuesta", "dd": true },
+      { "q": "Ejemplo pista 80", "a": "Respuesta" },
+      { "q": "Ejemplo pista 100", "a": "Respuesta" }
+    ]},
+    { "name": "Completá la frase", "clues": [
+      { "q": "Ejemplo pista 20", "a": "Respuesta" },
+      { "q": "Ejemplo pista 40", "a": "Respuesta" },
+      { "q": "Ejemplo pista 60", "a": "Respuesta" },
+      { "q": "Ejemplo pista 80", "a": "Respuesta" },
+      { "q": "Ejemplo pista 100", "a": "Respuesta" }
+    ]}
+  ],
+  "final": { "category": "La historia del grupo", "q": "Ejemplo de pregunta final", "a": "Respuesta final" }
+}

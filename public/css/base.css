@@ -1,0 +1,39 @@
+@import url('/fonts/anton/400.css');
+@import url('/fonts/inter/400.css');
+@import url('/fonts/inter/600.css');
+@import url('/fonts/inter/800.css');
+
+:root {
+  --bg: #070b24;
+  --bg-2: #0d1440;
+  --panel: #121b55;
+  --panel-2: #1a2670;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f4f6ff;
+  --muted: #9aa3d6;
+  --gold: #ffc53d;
+  --gold-2: #ff9f1a;
+  --red: #ff3b5c;
+  --red-2: #b8173a;
+  --blue: #2f8cff;
+  --blue-2: #1149c9;
+  --green: #22d37a;
+  --jeop: #0a17c9;
+  --jeop-2: #050d8a;
+  --display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
+  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; }
+.team-0 { --team: var(--red); --team-2: var(--red-2); }
+.team-1 { --team: var(--blue); --team-2: var(--blue-2); }
+.hidden { display: none !important; }

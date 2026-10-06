@@ -1,0 +1,1022 @@
+{
+  "_meta": {
+    "note": "Board answers/points from a scraped dataset of Steve Harvey-era Family Feud (syndicated seasons 16-20, 2014-2019). points_verified=true means points come from that source; aired_evidence links an official Family Feud YouTube clip of the same question where found."
+  },
+  "questions": [
+    {
+      "id": "ff-01",
+      "question_es": "100 casados: Completá: Estaba tan bolo anoche que hasta le di un beso a mi ___",
+      "question_en": "We asked 100 married men...Fill in the blank: I was so drunk last night, I actually kissed my what?",
+      "answers": [
+        {
+          "text_es": "Perro (en el trasero)",
+          "text_en": "DOG/ON THE BUTT",
+          "points": 45
+        },
+        {
+          "text_es": "Jefe",
+          "text_en": "BOSS",
+          "points": 23
+        },
+        {
+          "text_es": "Carro",
+          "text_en": "CAR",
+          "points": 12
+        },
+        {
+          "text_es": "Esposa",
+          "text_en": "WIFE/HUSBAND",
+          "points": 5
+        },
+        {
+          "text_es": "Ex",
+          "text_en": "EX",
+          "points": 3
+        },
+        {
+          "text_es": "Celular",
+          "text_en": "PHONE",
+          "points": 3
+        },
+        {
+          "text_es": "Amiga de mi esposa",
+          "text_en": "WIFE'S FRIEND",
+          "points": 3
+        }
+      ],
+      "absurdity": 5,
+      "points_verified": true,
+      "season": 20,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/20_7_59.json"
+    },
+    {
+      "id": "ff-02",
+      "question_es": "100 hombres: ¿Qué cosa de perro odiarías que te cuenten que hiciste bien bolo?",
+      "question_en": "We asked 100 men...Name something dogs do that you'd hate to hear you did when you were really drunk.",
+      "answers": [
+        {
+          "text_es": "Mear/cagar en público",
+          "text_en": "PUBLIC WHIZ/DUMP",
+          "points": 36
+        },
+        {
+          "text_es": "Montarle pierna a un maje",
+          "text_en": "HUMPED/DUDE'S LEG",
+          "points": 20
+        },
+        {
+          "text_es": "Lamerse/lamer a alguien",
+          "text_en": "LICKED SELF/SOMEONE",
+          "points": 19
+        },
+        {
+          "text_es": "Tomar agua del inodoro",
+          "text_en": "DRANK FROM TOILET",
+          "points": 6
+        },
+        {
+          "text_es": "Aullar",
+          "text_en": "HOWLED",
+          "points": 5
+        },
+        {
+          "text_es": "Comer popó",
+          "text_en": "ATE POOP",
+          "points": 5
+        },
+        {
+          "text_es": "Morder a alguien",
+          "text_en": "BIT SOMEONE",
+          "points": 3
+        }
+      ],
+      "absurdity": 5,
+      "points_verified": true,
+      "season": 17,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/17_7_72.json"
+    },
+    {
+      "id": "ff-03",
+      "question_es": "100 casados: ¿A quién odiarías saber que le tiraste onda estando bolo?",
+      "question_en": "We asked 100 married men...Name someone you'd hate to hear you hit on while you were drunk.",
+      "answers": [
+        {
+          "text_es": "Tu suegra",
+          "text_en": "MOTHER-IN-LAW",
+          "points": 29
+        },
+        {
+          "text_es": "La mejor amiga de ella",
+          "text_en": "WIFE'S BESTIE",
+          "points": 14
+        },
+        {
+          "text_es": "Tu cuñada",
+          "text_en": "SISTER-IN-LAW",
+          "points": 11
+        },
+        {
+          "text_es": "Una fea",
+          "text_en": "AN UGLY CHICK",
+          "points": 10
+        },
+        {
+          "text_es": "La esposa de un cuate",
+          "text_en": "BUDDY'S WIFE",
+          "points": 8
+        },
+        {
+          "text_es": "Compañera de trabajo",
+          "text_en": "COWORKER",
+          "points": 7
+        }
+      ],
+      "absurdity": 5,
+      "points_verified": true,
+      "season": 20,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/20_6_160.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=nOMbWnPD8XI"
+    },
+    {
+      "id": "ff-04",
+      "question_es": "Completá: El novio estaba tan bolo que al día siguiente amaneció durmiendo con ___",
+      "question_en": "Fill in the blank: The groom was so drunk that when he woke up the next morning, he was sleeping next to ______.",
+      "answers": [
+        {
+          "text_es": "Su padrino",
+          "text_en": "HIS BEST MAN",
+          "points": 30
+        },
+        {
+          "text_es": "Una dama de honor",
+          "text_en": "BRIDESMAID",
+          "points": 14
+        },
+        {
+          "text_es": "Un animal (una llama)",
+          "text_en": "ANIMAL/LLAMA",
+          "points": 12
+        },
+        {
+          "text_es": "La suegra",
+          "text_en": "MOTHER-IN-LAW",
+          "points": 11
+        },
+        {
+          "text_es": "El inodoro",
+          "text_en": "THE TOILET",
+          "points": 7
+        },
+        {
+          "text_es": "El cura",
+          "text_en": "CLERGY",
+          "points": 4
+        },
+        {
+          "text_es": "Una stripper",
+          "text_en": "A STRIPPER",
+          "points": 3
+        }
+      ],
+      "absurdity": 5,
+      "points_verified": true,
+      "season": 18,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/18_7_186.json"
+    },
+    {
+      "id": "ff-05",
+      "question_es": "100 hombres: La buena noticia: hay una mujer desnuda en tu cama. La mala: ¿quién es?",
+      "question_en": "We asked 100 men...The good news is, there's a naked woman in your bed. The bad news is, it's who?",
+      "answers": [
+        {
+          "text_es": "Mi mamá",
+          "text_en": "MY MOM",
+          "points": 24
+        },
+        {
+          "text_es": "Mi suegra",
+          "text_en": "MY MOTHER-IN-LAW",
+          "points": 23
+        },
+        {
+          "text_es": "Mi ex",
+          "text_en": "MY EX",
+          "points": 15
+        },
+        {
+          "text_es": "Mi cuñada",
+          "text_en": "MY SISTER-IN-LAW",
+          "points": 7
+        },
+        {
+          "text_es": "Mi esposa",
+          "text_en": "MY WIFE",
+          "points": 7
+        },
+        {
+          "text_es": "Mi abuela",
+          "text_en": "MY GRANDMA",
+          "points": 6
+        },
+        {
+          "text_es": "Mi jefa",
+          "text_en": "MY BOSS",
+          "points": 5
+        }
+      ],
+      "absurdity": 5,
+      "points_verified": true,
+      "season": 18,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/18_7_153.json"
+    },
+    {
+      "id": "ff-06",
+      "question_es": "La stripper se reportó enferma para la despedida de soltero. ¿Quién salió del pastel?",
+      "question_en": "The stripper called in sick to the bachelor party. So who popped out of the groom's cake?",
+      "answers": [
+        {
+          "text_es": "La novia",
+          "text_en": "HIS BRIDE/MATE",
+          "points": 25
+        },
+        {
+          "text_es": "El padrino/un cuate",
+          "text_en": "BEST MAN/BUD",
+          "points": 18
+        },
+        {
+          "text_es": "Stripper suplente",
+          "text_en": "BACKUP STRIPPER",
+          "points": 15
+        },
+        {
+          "text_es": "Mamá/suegra",
+          "text_en": "MOM/MOM-IN-LAW",
+          "points": 12
+        },
+        {
+          "text_es": "La abuela",
+          "text_en": "GRANNY",
+          "points": 4
+        },
+        {
+          "text_es": "La esposa de un cuate",
+          "text_en": "BUDDY'S WIFE",
+          "points": 3
+        },
+        {
+          "text_es": "El pastelero",
+          "text_en": "THE CAKE BAKER",
+          "points": 3
+        },
+        {
+          "text_es": "Su ex",
+          "text_en": "HIS EX",
+          "points": 2
+        }
+      ],
+      "absurdity": 5,
+      "points_verified": true,
+      "season": 20,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/20_8_134.json"
+    },
+    {
+      "id": "ff-07",
+      "question_es": "100 hombres: Si pescaras una sirena, ¿por qué la devolverías al mar?",
+      "question_en": "We asked 100 men...If you caught a mermaid, tell me a reason you might throw her back.",
+      "answers": [
+        {
+          "text_es": "Huele a pescado",
+          "text_en": "FISHY SMELL",
+          "points": 29
+        },
+        {
+          "text_es": "Cara fea",
+          "text_en": "UGLY FACE",
+          "points": 20
+        },
+        {
+          "text_es": "Necesita agua pa' vivir",
+          "text_en": "NEEDS WATER TO LIVE",
+          "points": 19
+        },
+        {
+          "text_es": "No tiene cosita",
+          "text_en": "NO COOCHIE",
+          "points": 11
+        },
+        {
+          "text_es": "Habla/jode mucho",
+          "text_en": "BLABS/NAGS",
+          "points": 7
+        },
+        {
+          "text_es": "Muy jovencita",
+          "text_en": "TOO YOUNG",
+          "points": 3
+        }
+      ],
+      "absurdity": 5,
+      "points_verified": true,
+      "season": 19,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/19_6_123.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=Yyf2MpIkNnY"
+    },
+    {
+      "id": "ff-08",
+      "question_es": "100 casados: ¿Qué botón del control remoto te gustaría que le funcionara a tu esposa?",
+      "question_en": "We asked 100 married men...Name a button on the remote that you wish worked on your wife.",
+      "answers": [
+        {
+          "text_es": "Silencio (mute)",
+          "text_en": "MUTE",
+          "points": 52
+        },
+        {
+          "text_es": "Apagar",
+          "text_en": "OFF/POWER",
+          "points": 12
+        },
+        {
+          "text_es": "Borrar",
+          "text_en": "DELETE",
+          "points": 9
+        },
+        {
+          "text_es": "Retroceder",
+          "text_en": "REWIND",
+          "points": 8
+        },
+        {
+          "text_es": "Siguiente",
+          "text_en": "NEXT",
+          "points": 5
+        },
+        {
+          "text_es": "Volumen",
+          "text_en": "VOLUME",
+          "points": 4
+        },
+        {
+          "text_es": "Pausa",
+          "text_en": "PAUSE",
+          "points": 4
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 19,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/19_7_63.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=AhEWZSVSsmo"
+    },
+    {
+      "id": "ff-09",
+      "question_es": "Decí algo que un bolo hace igualito que un perro.",
+      "question_en": "Name something a drunken guy might do just like a dog.",
+      "answers": [
+        {
+          "text_es": "Mear afuera",
+          "text_en": "WHIZ/OUTSIDE",
+          "points": 54
+        },
+        {
+          "text_es": "Ladrar/aullar",
+          "text_en": "BARK/GROWL/HOWL",
+          "points": 14
+        },
+        {
+          "text_es": "Comer/tomar",
+          "text_en": "EAT/DRINK",
+          "points": 10
+        },
+        {
+          "text_es": "Dormir en el suelo",
+          "text_en": "SLEEP/ON FLOOR",
+          "points": 5
+        },
+        {
+          "text_es": "Babear",
+          "text_en": "DROOL",
+          "points": 5
+        },
+        {
+          "text_es": "Montarse en piernas",
+          "text_en": "HUMP",
+          "points": 4
+        },
+        {
+          "text_es": "Vomitar",
+          "text_en": "PUKE",
+          "points": 4
+        },
+        {
+          "text_es": "Besar/lamer",
+          "text_en": "KISS/LICK",
+          "points": 2
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 20,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/20_8_2.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=oEgJoUIAhFs"
+    },
+    {
+      "id": "ff-10",
+      "question_es": "Decí algo que esperás NO haber hecho encima de una mesa estando bolo.",
+      "question_en": "Name something you hope you didn't do on a table while you were drunk.",
+      "answers": [
+        {
+          "text_es": "Bailar",
+          "text_en": "DANCE",
+          "points": 43
+        },
+        {
+          "text_es": "Vomitar",
+          "text_en": "BLOW CHUNKS",
+          "points": 25
+        },
+        {
+          "text_es": "Mear/cagar",
+          "text_en": "PEE/DROP A DEUCE",
+          "points": 8
+        },
+        {
+          "text_es": "Desnudarse",
+          "text_en": "STRIP",
+          "points": 6
+        },
+        {
+          "text_es": "Dormirse",
+          "text_en": "SLEEP",
+          "points": 5
+        },
+        {
+          "text_es": "Hacer cochinadas",
+          "text_en": "SLAP SOME SALAMI",
+          "points": 5
+        },
+        {
+          "text_es": "Botar el trago",
+          "text_en": "SPILL/MY MAI TAI",
+          "points": 3
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 16,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/16_7_49.json"
+    },
+    {
+      "id": "ff-11",
+      "question_es": "100 casados: Estás solo en casa, tocan el timbre y es una mujer desnuda. ¿Qué hacés?",
+      "question_en": "We asked 100 married men...You're home alone. The doorbell rings. It's a naked lady. What do you do?",
+      "answers": [
+        {
+          "text_es": "«¡Pasá, mamacita!»",
+          "text_en": "\"COME IN, TOOTS\"!",
+          "points": 37
+        },
+        {
+          "text_es": "Tirarle la puerta",
+          "text_en": "SLAM DOOR SHUT",
+          "points": 20
+        },
+        {
+          "text_es": "Darle toalla/ropa",
+          "text_en": "GIVE TOWEL/DUDS",
+          "points": 12
+        },
+        {
+          "text_es": "Sonreír/reírse",
+          "text_en": "SMILE/LAUGH",
+          "points": 12
+        },
+        {
+          "text_es": "Decir «¿¡Qué ondas!?»",
+          "text_en": "SAY, \"WHAT THE...\"",
+          "points": 11
+        },
+        {
+          "text_es": "Salir corriendo",
+          "text_en": "RUN AWAY",
+          "points": 3
+        },
+        {
+          "text_es": "«¿Qué andás vendiendo?»",
+          "text_en": "\"WHATCHA SELLIN'?\"",
+          "points": 3
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 19,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/19_7_17.json"
+    },
+    {
+      "id": "ff-12",
+      "question_es": "100 casados: La buena noticia: tu esposa es una fiera en la cama. La mala: ¿qué animal es?",
+      "question_en": "We asked 100 married men...The good news is, your wife is an animal in bed. The bad news is, the animal is a what?",
+      "answers": [
+        {
+          "text_es": "Perro",
+          "text_en": "DOG",
+          "points": 21
+        },
+        {
+          "text_es": "Chancho",
+          "text_en": "PIG",
+          "points": 15
+        },
+        {
+          "text_es": "Gato (callejero)",
+          "text_en": "CAT/FERAL CAT",
+          "points": 14
+        },
+        {
+          "text_es": "Pescado (muerto)",
+          "text_en": "FISH/A DEAD ONE",
+          "points": 12
+        },
+        {
+          "text_es": "Guepardo",
+          "text_en": "CHEETAH",
+          "points": 11
+        },
+        {
+          "text_es": "Gorila",
+          "text_en": "GORILLA",
+          "points": 9
+        },
+        {
+          "text_es": "Tigre",
+          "text_en": "TIGER",
+          "points": 8
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 17,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/17_7_122.json"
+    },
+    {
+      "id": "ff-13",
+      "question_es": "100 casadas: ¿Qué querés que tu marido haga solo en el baño y no por todos lados?",
+      "question_en": "We asked 100 married women...Name something you wish your hubby would do just in the bathroom, not everywhere he goes.",
+      "answers": [
+        {
+          "text_es": "Tirarse pedos",
+          "text_en": "BLOW BUTT KISSES",
+          "points": 41
+        },
+        {
+          "text_es": "Mear",
+          "text_en": "PEE",
+          "points": 11
+        },
+        {
+          "text_es": "Sonarse/sacarse mocos",
+          "text_en": "BLOW/PICK NOSE",
+          "points": 10
+        },
+        {
+          "text_es": "Escupir",
+          "text_en": "SPIT",
+          "points": 9
+        },
+        {
+          "text_es": "Dejar la ropa tirada",
+          "text_en": "LEAVE HIS CLOTHES",
+          "points": 9
+        },
+        {
+          "text_es": "Lavarse los dientes",
+          "text_en": "BRUSH HIS TEETH",
+          "points": 8
+        },
+        {
+          "text_es": "Cortarse las uñas",
+          "text_en": "CLIP HIS NAILS",
+          "points": 6
+        },
+        {
+          "text_es": "Recortarse pelos",
+          "text_en": "TRIM/PLUCK HAIRS",
+          "points": 2
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 19,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/19_8_27.json"
+    },
+    {
+      "id": "ff-14",
+      "question_es": "¡Puchica! Ibas a mandarle fotos desnudo a tu pareja, pero le llegaron a… ¿quién?",
+      "question_en": "Oh no -- you meant to send naked pictures to your beloved. But they accidentally went to who?",
+      "answers": [
+        {
+          "text_es": "Tus papás",
+          "text_en": "PARENTS",
+          "points": 39
+        },
+        {
+          "text_es": "Jefe/compañero",
+          "text_en": "BOSS/COWORKER",
+          "points": 23
+        },
+        {
+          "text_es": "Un amigo",
+          "text_en": "FRIEND",
+          "points": 9
+        },
+        {
+          "text_es": "Hermano/hermana",
+          "text_en": "BROTHER/SISTER",
+          "points": 9
+        },
+        {
+          "text_es": "Tus hijos",
+          "text_en": "KIDS",
+          "points": 4
+        },
+        {
+          "text_es": "Tu ex",
+          "text_en": "EX",
+          "points": 4
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 17,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/17_6_116.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=pCUW343Fa_U"
+    },
+    {
+      "id": "ff-15",
+      "question_es": "Decí un instrumento musical que suena igual que vos en el baño.",
+      "question_en": "Name a specific musical instrument that sounds like you in the bathroom.",
+      "answers": [
+        {
+          "text_es": "Tuba",
+          "text_en": "TUBA",
+          "points": 33
+        },
+        {
+          "text_es": "Trombón",
+          "text_en": "TROMBONE",
+          "points": 12
+        },
+        {
+          "text_es": "Flauta",
+          "text_en": "FLUTE",
+          "points": 11
+        },
+        {
+          "text_es": "Trompeta",
+          "text_en": "TRUMPET",
+          "points": 10
+        },
+        {
+          "text_es": "Batería/bongós",
+          "text_en": "DRUMS/BONGOS",
+          "points": 9
+        },
+        {
+          "text_es": "Violín",
+          "text_en": "VIOLIN",
+          "points": 5
+        },
+        {
+          "text_es": "Piano",
+          "text_en": "PIANO",
+          "points": 4
+        },
+        {
+          "text_es": "Guitarra",
+          "text_en": "GUITAR",
+          "points": 4
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 18,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/18_8_89.json"
+    },
+    {
+      "id": "ff-16",
+      "question_es": "Pésima frase pa' levantar en un bar: «Tengo un/una…» ¿qué?",
+      "question_en": "A really bad pickup line for a man to use at a bar would be \"I have a\" what?",
+      "answers": [
+        {
+          "text_es": "Esposa",
+          "text_en": "WIFE/MATE",
+          "points": 29
+        },
+        {
+          "text_es": "Enfermedad venérea",
+          "text_en": "DISEASE/DISCHARGE",
+          "points": 25
+        },
+        {
+          "text_es": "Pito chiquito/grande",
+          "text_en": "BIG/TINY/LIMP TOOL",
+          "points": 9
+        },
+        {
+          "text_es": "Carro bien viejo",
+          "text_en": "CAR/'76 GREMLIN",
+          "points": 6
+        },
+        {
+          "text_es": "Un montón de hijos",
+          "text_en": "KID/BUNCH OF KIDS",
+          "points": 6
+        },
+        {
+          "text_es": "Una pistola",
+          "text_en": "GUN/STUN GUN",
+          "points": 5
+        },
+        {
+          "text_es": "Mucho/nada de pisto",
+          "text_en": "LOTTA $/NO $",
+          "points": 4
+        }
+      ],
+      "absurdity": 4,
+      "points_verified": true,
+      "season": 20,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/20_7_156.json"
+    },
+    {
+      "id": "ff-17",
+      "question_es": "Decí algo que la abuela le dice al abuelo que no haga enfrente de los nietos.",
+      "question_en": "Name something grandma tells grandpa not to do in front of the grandkids.",
+      "answers": [
+        {
+          "text_es": "Tirarse pedos",
+          "text_en": "BLOW BUTT BOMBS",
+          "points": 38
+        },
+        {
+          "text_es": "Decir malas palabras",
+          "text_en": "CUSS",
+          "points": 36
+        },
+        {
+          "text_es": "Besarla con lengua",
+          "text_en": "TONGUE KISS HER",
+          "points": 4
+        },
+        {
+          "text_es": "Sacarse los mocos",
+          "text_en": "PICK HIS NOSE",
+          "points": 4
+        },
+        {
+          "text_es": "Rascarse la raya",
+          "text_en": "SCRATCH/HIS CRACK",
+          "points": 3
+        }
+      ],
+      "absurdity": 3,
+      "points_verified": true,
+      "season": 18,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/18_5_87.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=xgW2FTiMOD4"
+    },
+    {
+      "id": "ff-18",
+      "question_es": "Decí a quién odiarías descubrir que llamaste bolo anoche.",
+      "question_en": "Name someone you'd hate to realize you drunk dialed last night.",
+      "answers": [
+        {
+          "text_es": "Mi ex",
+          "text_en": "MY EX",
+          "points": 26
+        },
+        {
+          "text_es": "Mi mamá/papá",
+          "text_en": "MY MOM/DAD",
+          "points": 18
+        },
+        {
+          "text_es": "Mi jefe",
+          "text_en": "MY BOSS",
+          "points": 17
+        },
+        {
+          "text_es": "El pastor/el Papa",
+          "text_en": "PASTOR/THE POPE",
+          "points": 12
+        },
+        {
+          "text_es": "911/la policía",
+          "text_en": "911/COPS",
+          "points": 6
+        },
+        {
+          "text_es": "Mis suegros",
+          "text_en": "MY IN-LAWS",
+          "points": 5
+        }
+      ],
+      "absurdity": 3,
+      "points_verified": true,
+      "season": 16,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/16_6_116.json"
+    },
+    {
+      "id": "ff-19",
+      "question_es": "Decí algo que una esposa enojada limpiaría con el cepillo de dientes del marido.",
+      "question_en": "Name something a mean wife might use her husband's toothbrush to clean.",
+      "answers": [
+        {
+          "text_es": "El inodoro",
+          "text_en": "TOILET",
+          "points": 84
+        },
+        {
+          "text_es": "El lavamanos",
+          "text_en": "SINK",
+          "points": 5
+        },
+        {
+          "text_es": "Su cuerpo/el trasero",
+          "text_en": "HER BODY/POOP CHUTE",
+          "points": 3
+        },
+        {
+          "text_es": "El piso",
+          "text_en": "FLOOR",
+          "points": 3
+        },
+        {
+          "text_es": "Zapatos",
+          "text_en": "SHOES",
+          "points": 3
+        },
+        {
+          "text_es": "Trastes/sartén",
+          "text_en": "DISHES/PAN",
+          "points": 2
+        }
+      ],
+      "absurdity": 3,
+      "points_verified": true,
+      "season": 20,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/20_6_1.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=7qxEyA0rCbQ"
+    },
+    {
+      "id": "ff-20",
+      "question_es": "Están remodelando tu baño. ¿Dónde vas a hacer pipí?",
+      "question_en": "Your bathroom is being renovated. So where do you tinkle?",
+      "answers": [
+        {
+          "text_es": "Afuera/desde el balcón",
+          "text_en": "OUTSIDE/OFF BALCONY",
+          "points": 36
+        },
+        {
+          "text_es": "Donde el vecino/amigo",
+          "text_en": "FRIEND'S/NEIGHBOR'S",
+          "points": 9
+        },
+        {
+          "text_es": "Otro baño",
+          "text_en": "2ND BATHROOM",
+          "points": 9
+        },
+        {
+          "text_es": "Tienda/restaurante",
+          "text_en": "STORE/RESTAURANT",
+          "points": 8
+        },
+        {
+          "text_es": "El lavatrastos",
+          "text_en": "KITCHEN SINK",
+          "points": 7
+        },
+        {
+          "text_es": "Una cubeta",
+          "text_en": "BUCKET",
+          "points": 6
+        },
+        {
+          "text_es": "Frasco/lata de Coca",
+          "text_en": "JAR/JUG/COKE CAN",
+          "points": 5
+        },
+        {
+          "text_es": "La ducha",
+          "text_en": "SHOWER/TUB",
+          "points": 4
+        }
+      ],
+      "absurdity": 3,
+      "points_verified": true,
+      "season": 20,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/20_8_122.json"
+    },
+    {
+      "id": "ff-21",
+      "question_es": "Decí algo que le cuesta más a un hombre con panza chelera.",
+      "question_en": "Name something that's harder for a man to do if he has a big beer gut.",
+      "answers": [
+        {
+          "text_es": "Agacharse/amarrarse",
+          "text_en": "BEND OVER/TIE SHOES",
+          "points": 51
+        },
+        {
+          "text_es": "Hacer ejercicio/correr",
+          "text_en": "EXERCISE/RUN",
+          "points": 15
+        },
+        {
+          "text_es": "Hacer el amor",
+          "text_en": "POKE-N-RIDE",
+          "points": 10
+        },
+        {
+          "text_es": "Verse los pies/el pipí",
+          "text_en": "SEE HIS FEET/CHODE",
+          "points": 7
+        },
+        {
+          "text_es": "Que le quede la ropa",
+          "text_en": "FIT INTO CLOTHES",
+          "points": 4
+        },
+        {
+          "text_es": "Sentarse/acuclillarse",
+          "text_en": "SIT/SQUAT",
+          "points": 3
+        },
+        {
+          "text_es": "Levantar chavas",
+          "text_en": "ATTRACT HOTTIES",
+          "points": 2
+        },
+        {
+          "text_es": "Dormir boca abajo",
+          "text_en": "SLEEP/ON STOMACH",
+          "points": 2
+        }
+      ],
+      "absurdity": 3,
+      "points_verified": true,
+      "season": 16,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/16_8_33.json"
+    },
+    {
+      "id": "ff-22",
+      "question_es": "Decí el peor lugar para llegar bolo.",
+      "question_en": "Name the worst thing for someone to show up drunk to.",
+      "answers": [
+        {
+          "text_es": "Su propia boda",
+          "text_en": "WEDDING/THEIR OWN",
+          "points": 23
+        },
+        {
+          "text_es": "Trabajo/entrevista",
+          "text_en": "WORK/INTERVIEW",
+          "points": 22
+        },
+        {
+          "text_es": "Un velorio",
+          "text_en": "FUNERAL",
+          "points": 16
+        },
+        {
+          "text_es": "La iglesia",
+          "text_en": "CHURCH",
+          "points": 14
+        },
+        {
+          "text_es": "Un juicio",
+          "text_en": "COURT/JURY DUTY",
+          "points": 10
+        },
+        {
+          "text_es": "Piñata de un niño",
+          "text_en": "KID'S B-DAY PARTY",
+          "points": 4
+        },
+        {
+          "text_es": "Alcohólicos Anónimos",
+          "text_en": "AA MEETING",
+          "points": 3
+        }
+      ],
+      "absurdity": 3,
+      "points_verified": true,
+      "season": 19,
+      "source": "https://github.com/MrSuperJolly/FamilyFeudQuestions/blob/master/Json/19_7_98.json",
+      "aired_evidence": "https://www.youtube.com/watch?v=AABVSKTZM8g"
+    }
+  ]
+}
