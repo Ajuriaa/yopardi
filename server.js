@@ -50,7 +50,9 @@ let content = { feud: [], jeop: { values: [], categories: [], final: null } };
 
 function loadContent() {
   const feudRaw = readJSON(path.join(DATA_DIR, 'family-feud.json'), { questions: [] });
-  const feud = (feudRaw.questions || [])
+  // Preguntas del grupo (privadas, no van al repo): van primero en la lista.
+  const feudPrivate = readJSON(path.join(DATA_DIR, 'family-feud.private.json'), { questions: [] });
+  const feud = [...(feudPrivate.questions || []), ...(feudRaw.questions || [])]
     .map((q, i) => ({
       id: String(q.id || `ff-${i + 1}`),
       question: q.question_es || q.question || q.question_en || '',

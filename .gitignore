@@ -10,3 +10,6 @@ data/.host-key
 *.zip
 private/
 data/jeopardy.json
+
+# Preguntas de Feud del grupo
+data/*.private.json
