@@ -112,7 +112,7 @@ function freshState(teamNames) {
     ],
     feud: { qid: null, mult: 1, revealed: [], strikes: 0, control: null, bank: 0, steal: false, awarded: null, usedQids: [] },
     jeop: { used: {}, dd: pickDailyDoubles(), cell: null, stage: null, isDD: false, ddTeam: null, ddWager: null, judged: [null, null] },
-    final: { stage: 'category', wagers: [0, 0], results: [null, null] },
+    final: { stage: 'category', wagers: [0, 0], results: [null, null], applied: [0, 0] },
     timer: null,
   };
 }
@@ -167,9 +167,18 @@ const currentFeud = () => {
   return q;
 };
 
+// Tope de apuesta final: lo que tenía antes de la final, o al menos el valor de la casilla más alta
+// (así un equipo en 0 o negativo todavía puede apostar algo).
+function finalMaxWager(i) {
+  const base = state.teams[i].score - (state.final.applied?.[i] || 0);
+  return Math.max(base, Math.max(0, ...content.jeop.values));
+}
+
 const actions = {
   setScene({ scene }, emit) {
     if (!SCENES.includes(scene)) throw new GameError('Escena inválida');
+    // Si se sale de Feud con la pregunta ya cobrada, se limpia para volver a la lista.
+    if (state.scene === 'feud' && scene !== 'feud' && state.feud.awarded !== null) state.feud.qid = null;
     state.scene = scene;
     if (scene === 'end') emit('win');
   },
@@ -355,20 +364,26 @@ const actions = {
   },
   finalWager({ team: t, amount }) {
     const i = team(t);
-    state.final.wagers[i] = Math.min(Math.max(int(amount), 0), Math.max(state.teams[i].score, 0));
+    state.final.wagers[i] = Math.min(Math.max(int(amount), 0), finalMaxWager(i));
   },
   finalJudge({ team: t, correct }, emit) {
     const i = team(t);
     const fin = state.final;
+    if (fin.stage !== 'results') throw new GameError('Pasá a "Resultados" para calificar');
     const wager = fin.wagers[i];
-    // Si ya se había calificado, revertir primero para no aplicarlo doble.
-    if (fin.results[i] !== null) state.teams[i].score -= fin.results[i] ? wager : -wager;
+    // Si ya se había calificado, revertir lo que se aplicó (aunque la apuesta haya cambiado).
+    state.teams[i].score -= fin.applied[i] || 0;
+    const delta = correct ? wager : -wager;
+    state.teams[i].score += delta;
+    fin.applied[i] = delta;
     fin.results[i] = !!correct;
-    state.teams[i].score += correct ? wager : -wager;
     emit(correct ? 'correct' : 'wrong', { team: i, value: wager });
     if (!correct) emit('drink', { team: i, reason: 'Falló la final' });
   },
 };
+
+const REPEATABLE = new Set(['adjustScore']);
+let lastAction = { sig: '', at: 0 };
 
 function applyAction(action, payload, rev) {
   if (action === 'undo') {
@@ -383,8 +398,13 @@ function applyAction(action, payload, rev) {
 
   const fn = actions[action];
   if (!fn) throw new GameError(`Acción desconocida: ${action}`);
-  // Protección contra doble toque: el host manda la versión que estaba viendo.
+  // Protección contra doble toque: el host manda la versión que estaba viendo…
   if (rev !== undefined && rev !== state.rev) return { stale: true };
+  // …y además se ignora la misma acción repetida en menos de 600 ms (por si la respuesta aún no llegaba).
+  const sig = action + JSON.stringify(payload ?? {});
+  const now = Date.now();
+  if (!REPEATABLE.has(action) && lastAction.sig === sig && now - lastAction.at < 600) return { stale: true };
+  lastAction = { sig, at: now };
 
   const before = JSON.stringify(state);
   const events = [];
@@ -445,6 +465,7 @@ function viewFor(role) {
   const finalView = {
     stage: fin.stage,
     results: fin.results,
+    maxWagers: isHost ? [finalMaxWager(0), finalMaxWager(1)] : null,
     wagers: isHost || fin.stage === 'results' ? fin.wagers : null,
     category: final?.category ?? null,
     clue: final && (isHost || stageIdx >= 1) ? final.q : null,

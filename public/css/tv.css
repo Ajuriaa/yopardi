@@ -562,3 +562,30 @@ body { overflow: hidden; user-select: none; -webkit-user-select: none; cursor: d
   font-weight: 800;
   font-size: calc(2.2 * var(--u));
 }
+
+/* Arreglos del QA */
+.scorebar { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.score { min-width: 0; }
+.score-name { min-width: 0; flex: 1; }
+.scorebar-center { position: relative; }
+.timer { position: absolute; top: calc(100% + 0.8 * var(--u)); left: 50%; transform: translateX(-50%); z-index: 3; }
+.timer.urgent { animation: pulseT 1s infinite; }
+@keyframes pulseT { 50% { transform: translateX(-50%) scale(1.1); } }
+.confetti { position: fixed; inset: 0; z-index: 58; }
+.offline { bottom: auto; top: calc(1 * var(--u)); }
+.sound-pill {
+  position: fixed;
+  right: calc(2 * var(--u));
+  bottom: calc(2 * var(--u));
+  z-index: 95;
+  border: 0;
+  border-radius: 999px;
+  padding: calc(1 * var(--u)) calc(2.5 * var(--u));
+  font: 800 calc(2 * var(--u)) var(--body);
+  background: var(--gold);
+  color: #2a1600;
+  cursor: pointer;
+}
+.fx-drink.show { animation-duration: 2.4s; }
+.fx-strike.show { animation-duration: 1.1s; }
+.fx-banner.show { animation-duration: 1.8s; }

@@ -83,6 +83,7 @@ function askConfirm(title, okLabel = 'Sí') {
 // ---------- Envío de acciones ----------
 
 let net = null;
+let lastTap = 0;
 function send(action, payload) {
   if (!net.send(action, payload)) {
     toast('Sin conexión con la compu', true);
@@ -107,6 +108,10 @@ document.addEventListener('click', async (e) => {
 
   const btn = e.target.closest('[data-act]');
   if (btn && !btn.disabled) {
+    // Doble toque: ignorar cualquier acción repetida muy rápido.
+    const now = Date.now();
+    if (now - lastTap < 450) return;
+    lastTap = now;
     if (btn.dataset.confirm && !(await askConfirm(btn.dataset.confirm))) return;
     let payload = {};
     try {
@@ -137,7 +142,7 @@ async function handleUi(kind, p) {
     });
     if (v !== null) send('jeopWager', { team: p.team, amount: Math.min(v, max) });
   } else if (kind === 'finalWager') {
-    const max = Math.max(state.teams[p.team].score, 0);
+    const max = state.final.maxWagers?.[p.team] ?? Math.max(state.teams[p.team].score, 0);
     const v = await askNumber(`Apuesta final de ${state.teams[p.team].name}`, {
       value: state.final.wagers?.[p.team] || '',
       max,
@@ -162,8 +167,8 @@ function renderTop() {
   $('#undo').disabled = !state.canUndo;
   const current = localView || state.scene;
   $('#tabs').innerHTML =
-    TABS.map(([id, label]) => `<button class="tab ${current === id ? 'on' : ''}" data-tab="${id}">${label}</button>`).join('') +
-    `<button class="tab local ${current === 'settings' ? 'on' : ''}" data-tab="settings">⚙️ Ajustes</button>`;
+    TABS.map(([id, label]) => `<button class="tab ${current === id ? 'on' : ''}" data-tab="${id}">${label}</button>`).join('');
+  $('#gear').classList.toggle('on', current === 'settings');
   $('#drinkbar').innerHTML = [
     act('drink', { team: 0, reason: 'Orden del host' }, { cls: 'team team-0', label: `🍺 ${esc(state.teams[0].name)}` }),
     act('drink', { team: null, reason: '¡Todos toman!' }, { cls: 'all', label: '🍻 Todos' }),
@@ -190,8 +195,8 @@ function panelFeud() {
         return `<div class="card"><h2>${esc(r.name)}${r.mult > 1 ? ` <span class="dd-flag">${r.mult}X</span>` : ''}</h2><div class="qlist">${items}</div></div>`;
       })
       .join('');
-    const reserve = state.feudList.filter((q) => !inRounds.has(q.id)).map((q) => item(q)).join('');
-    return `${rounds}<div class="card"><h2>${rounds ? 'Reserva (usa el multiplicador actual)' : 'Escogé una pregunta'}</h2><div class="qlist">${reserve}</div></div>`;
+    const reserve = state.feudList.filter((q) => !inRounds.has(q.id)).map((q) => item(q, 1)).join('');
+    return `${rounds}<div class="card"><h2>${rounds ? 'Reserva (1x)' : 'Escogé una pregunta'}</h2><div class="qlist">${reserve}</div></div>`;
   }
 
   const t = state.teams;
@@ -220,7 +225,7 @@ function panelFeud() {
       <div class="row">${act('feudRevealRest', {}, { label: 'Revelar las demás' })}<button class="btn primary" data-ui="feudChange">Siguiente pregunta →</button></div></div>`;
   } else {
     bankCard = `<div class="card"><div class="bank"><span>Banco</span><b>${f.bank}</b></div>
-      ${stealing !== null ? `<div class="steal-banner">¡ROBO! ${esc(t[stealing].name)} tiene 1 intento</div><p class="hint">Si acierta: revelá la respuesta y dale el banco a ${esc(t[stealing].name)}. Si falla: tocá STRIKE y dale el banco a ${esc(t[f.control].name)}.</p>` : ''}
+      ${stealing !== null ? `<div class="steal-banner">¡ROBO! ${esc(t[stealing].name)} tiene 1 intento</div><p class="hint">Si acierta: revelá la respuesta y dale el banco a ${esc(t[stealing].name)}. Si falla: tocá «Falló el robo» y dale el banco a ${esc(t[f.control].name)}.</p>` : ''}
       <div class="row" style="margin-top:8px">
         ${act('feudAward', { team: 0 }, { cls: 'team team-0', label: `+${f.bank} → ${esc(t[0].name)}`, confirm: `¿Dar ${f.bank} puntos a ${t[0].name}?` })}
         ${act('feudAward', { team: 1 }, { cls: 'team team-1', label: `+${f.bank} → ${esc(t[1].name)}`, confirm: `¿Dar ${f.bank} puntos a ${t[1].name}?` })}
@@ -313,15 +318,16 @@ function panelFinal() {
     ['answer', 'Respuesta'],
     ['results', 'Resultados'],
   ];
+  const canJudge = fin.stage === 'results';
   const judgeRow = (i) => {
     const r = fin.results[i];
     return `<div class="judge team-${i}"><span class="tn">${esc(t[i].name)}${r === true ? ' ✅' : r === false ? ' ❌' : ''}</span>
-      ${act('finalJudge', { team: i, correct: true }, { cls: r === true ? 'good' : '', label: '✅ Bien' })}
-      ${act('finalJudge', { team: i, correct: false }, { cls: r === false ? 'bad' : '', label: '❌ Mal' })}</div>`;
+      ${act('finalJudge', { team: i, correct: true }, { cls: r === true ? 'good' : '', label: '✅ Bien', disabled: !canJudge })}
+      ${act('finalJudge', { team: i, correct: false }, { cls: r === false ? 'bad' : '', label: '❌ Mal', disabled: !canJudge })}</div>`;
   };
   return `
     <div class="card"><h2>Paso en la TV</h2>
-      <div class="row">${stages.map(([id, l]) => act('finalStage', { stage: id }, { cls: fin.stage === id ? 'on' : '', label: l })).join('')}</div>
+      <div class="grid2">${stages.map(([id, l], n) => act('finalStage', { stage: id }, { cls: fin.stage === id ? 'on' : '', label: `${n + 1}. ${l}` })).join('')}</div>
     </div>
     <div class="card"><h2>${esc(fin.category ?? 'Sin final configurada')}</h2>
       ${fin.clue ? `<div class="clue">${esc(fin.clue)}</div><div class="answer"><small>Respuesta</small>${esc(fin.answer)}</div>` : '<p>Agregá "final" en data/jeopardy.json</p>'}
@@ -329,8 +335,8 @@ function panelFinal() {
     <div class="card"><h2>1 · Apuestas (antes de mostrar la pregunta)</h2>
       ${t
         .map(
-          (team, i) => `<div class="row team-${i}"><span class="label" style="color:var(--team);font-weight:800">${esc(team.name)}</span>
-          <span style="font-family:var(--display);font-size:22px;color:var(--gold)">${fin.wagers[i]}</span>
+          (team, i) => `<div class="row wager-row team-${i}"><span class="label" style="color:var(--team);font-weight:800">${esc(team.name)}</span>
+          <span class="val">${fin.wagers[i]}</span>
           <button class="btn" data-ui="finalWager" data-p='{"team":${i}}'>Apuesta…</button></div>`
         )
         .join('')}
@@ -339,7 +345,7 @@ function panelFinal() {
       <div class="row">${act('timerStart', { seconds: 30 }, { label: '▶ 30 s' })}${act('timerStart', { seconds: 60 }, { label: '▶ 60 s' })}${act('timerStop', {}, { label: '■ Parar', disabled: !state.timer })}</div>
     </div>
     <div class="card"><h2>3 · Calificar</h2>${judgeRow(0)}${judgeRow(1)}
-      <p class="hint">Podés corregir: tocar el otro botón revierte y aplica de nuevo.</p></div>`;
+      <p class="hint">${canJudge ? 'Podés corregir: tocar el otro botón revierte y aplica de nuevo.' : 'Se califica en el paso 4 · Resultados (así la TV no spoilea antes).'}</p></div>`;
 }
 
 function panelSettings() {
@@ -421,8 +427,9 @@ net = connect('host', {
     $('#badkey').classList.add('hidden');
     render();
   },
-  onEvent: (name) => {
+  onEvent: (name, data) => {
     if (name === 'undo') toast('Deshecho ↩︎');
+    else if (name === 'toast') toast(data.msg);
   },
   onToast: toast,
   onStatus: (ok) => $('#dot').classList.toggle('ok', ok),

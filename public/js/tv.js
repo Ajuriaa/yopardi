@@ -11,11 +11,22 @@ let state = null;
 function goFullscreen() {
   if (!document.fullscreenElement) document.documentElement.requestFullscreen?.().catch(() => {});
 }
-$('#start-btn').addEventListener('click', () => {
-  unlockAudio();
+let audioOn = false;
+function startShow() {
+  audioOn = unlockAudio();
   goFullscreen();
   $('#start').classList.add('gone');
-});
+  $('#sound-pill').classList.add('hidden');
+}
+$('#start-btn').addEventListener('click', startShow);
+// Si la TV se recarga a media partida, mostrar el juego de una y pedir el click solo con un aviso chiquito.
+function hideStartIfPlaying() {
+  const start = $('#start');
+  if (start.classList.contains('gone')) return;
+  start.classList.add('gone');
+  if (!audioOn) $('#sound-pill').classList.remove('hidden');
+}
+$('#sound-pill').addEventListener('click', startShow);
 document.addEventListener('keydown', (e) => {
   if (e.key === 'f' || e.key === 'F') goFullscreen();
 });
@@ -24,14 +35,20 @@ document.addEventListener('click', unlockAudio);
 
 // ---------- Cola de efectos (para que un TOMA no tape un STRIKE) ----------
 
+// Un efecto que esperó más de FX_MAX_WAIT ya no tiene sentido mostrarlo (el juego siguió).
+const FX_MAX_WAIT = 4000;
 const fxQueue = [];
 let fxBusy = false;
 function queueFx(run, duration) {
-  fxQueue.push({ run, duration });
+  fxQueue.push({ run, duration, at: Date.now() });
   if (!fxBusy) nextFx();
 }
+function clearFx() {
+  fxQueue.length = 0;
+}
 function nextFx() {
-  const item = fxQueue.shift();
+  let item = fxQueue.shift();
+  while (item && Date.now() - item.at > FX_MAX_WAIT) item = fxQueue.shift();
   if (!item) {
     fxBusy = false;
     return;
@@ -81,22 +98,22 @@ function onEvent(name, data) {
       queueFx(() => sfx.reveal(), 0);
       break;
     case 'strike':
-      queueFx(() => showStrike(data.count), 1600);
+      queueFx(() => showStrike(data.count), 1100);
       break;
     case 'drink':
-      queueFx(() => showDrink(data), 3300);
+      queueFx(() => showDrink(data), 2500);
       break;
     case 'steal':
       queueFx(() => {
         showBanner(`¡Robo! ${state?.teams[data.team]?.name ?? ''}`, data.team === 0 ? 'var(--red)' : 'var(--blue)');
         sfx.steal();
-      }, 2500);
+      }, 1800);
       break;
     case 'award':
       queueFx(() => {
         sfx.award();
         showBanner(`+${data.points} ${state?.teams[data.team]?.name ?? ''}`, data.team === 0 ? 'var(--red)' : 'var(--blue)');
-      }, 2500);
+      }, 1800);
       break;
     case 'open':
       sfx.open();
@@ -196,7 +213,7 @@ function renderFeud(s) {
     const slot = board.querySelector(`.slot[data-i="${i}"]`);
     if (a.revealed) {
       slot.querySelector('.text').textContent = a.text;
-      slot.querySelector('.pts').textContent = a.points;
+      slot.querySelector('.pts').textContent = a.points * f.mult;
     }
     slot.classList.toggle('revealed', !!a.revealed);
   });
@@ -265,7 +282,8 @@ function renderFinal(s) {
     res.innerHTML = s.teams
       .map((t, i) => {
         const r = fin.results[i];
-        const mark = r === null ? '…' : r ? '✅ +' + (fin.wagers?.[i] ?? 0) : '❌ −' + (fin.wagers?.[i] ?? 0);
+        const w = fin.wagers?.[i] ?? 0;
+        const mark = r === null ? '…' : r ? `✅ +${w}` : w ? `❌ −${w}` : '❌ 0';
         return `<div class="final-result team-${i}"><div class="n">${esc(t.name)}</div><div class="w">Apostó ${fin.wagers?.[i] ?? '?'}</div><div class="r">${mark}</div></div>`;
       })
       .join('');
@@ -342,6 +360,10 @@ setInterval(() => {
     return;
   }
   const left = Math.max(0, Math.ceil((t.endsAt - net.now()) / 1000));
+  if (net.now() - t.endsAt > 3000) {
+    el.classList.add('hidden');
+    return;
+  }
   el.classList.remove('hidden');
   el.classList.toggle('urgent', left <= 10);
   el.querySelector('span').textContent = left;
@@ -354,8 +376,14 @@ setInterval(() => {
 
 // ---------- Conexión ----------
 
+let lastSceneKey = null;
 function render(s) {
+  const sceneKey = `${s.scene}|${s.feud.qid}|${s.jeop.cell ? s.jeop.cell.c + '-' + s.jeop.cell.r : ''}`;
+  if (lastSceneKey !== null && sceneKey.split('|')[0] !== lastSceneKey.split('|')[0]) clearFx();
+  if (lastSceneKey !== null && sceneKey.split('|')[1] !== lastSceneKey.split('|')[1]) clearFx();
+  lastSceneKey = sceneKey;
   state = s;
+  if (s.scene !== 'lobby') hideStartIfPlaying();
   renderScene(s);
   renderScores(s);
   renderFeud(s);

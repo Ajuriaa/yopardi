@@ -251,3 +251,20 @@ body {
   .top, .tabs, .panel { max-width: 640px; margin-left: auto; margin-right: auto; }
   .drinkbar { max-width: 640px; margin: 0 auto; border-radius: 16px 16px 0 0; border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
 }
+
+/* Arreglos del QA: botones tocables (≥44px), filas que no se salen de la pantalla */
+.undo { min-height: 44px; }
+.gear { font-size: 18px; padding: 8px 12px; }
+.gear.on { background: var(--gold); border-color: var(--gold); }
+.tab { min-height: 44px; }
+.row > * { min-width: 0; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.drinkbar .btn { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jcat { word-break: normal; overflow-wrap: normal; hyphens: auto; overflow: hidden; font-size: 9px; }
+.mini .nm { min-width: 0; }
+.ellipsis, .judge .tn, .row .label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.judge { grid-template-columns: minmax(0, 1fr) 88px 88px; }
+.judge .btn, .wager-row .btn { white-space: nowrap; }
+.wager-row { display: grid !important; grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; }
+.wager-row .val { font-family: var(--display); font-size: 22px; color: var(--gold); }
+.btn.team { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
